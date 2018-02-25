@@ -26,3 +26,122 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 } */
+
+
+.fl{
+  display: flex;
+}
+.fl__d-col{
+  display: flex;
+  flex-direction: column;
+}
+.fl__d-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.App{
+  display: flex;
+}
+.main{
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  padding: 100px;
+}
+
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  height:100vh;
+  flex:0.5;
+  background-color: #FF647A;
+  color: #fff;
+  padding: 20px 20px 20px;
+}
+
+
+
+.text-blue{
+  color: #19007F;
+}
+.title_heading-main-color{
+  color: #FF647A
+}
+.align_center{
+  justify-content: center;
+}
+
+.title__heading{
+  font-size: 30px;
+}
+
+.drinks__list{
+  flex-wrap: wrap;
+}
+
+.drinks__list-items{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 0 1 33.333%;
+  cursor: pointer;
+}
+
+.drinks__list-items img{
+  width: 60px;
+  height: 60px;
+}
+
+.mg__top--md{
+  margin-top:100px;
+}
+.mg__top--sm{
+  margin-top:50px;
+}
+.mg__top--xs{
+  margin-top:25px;
+}
+.mg__top--xxs{
+  margin-top:10px;
+}
+.icon__size--md{
+  font-size: 50px;
+}
+.icon__size--sm{
+  font-size: 25px;
+}
+.cursor{
+  cursor: pointer;
+}
+ul{
+  margin:0;
+  padding:0;
+}
+ul li{
+  list-style-type: none;
+}
+
+.sidebar__nav{
+  padding:0 20px;
+}
+.sidebar__nav--title{
+  letter-spacing: .4em;
+  line-height:2em;
+}
+.sidebar__nav--menu li a{
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: .2em;
+  font-size:14px;
+}
+.sidebar__nav--menu li a:hover{
+  font-weight: bolder;
+  border-left: 2px solid #fff;
+  padding-left: 5px;
+  align-items: center;
+}
+.sidebar__nav--menu li{
+  padding:10px 0px;
+}
