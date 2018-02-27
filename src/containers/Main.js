@@ -1,14 +1,16 @@
 import React, { PureComponent } from 'react';
 import ListItems from '../components/ListItem';
+import Modal from '../components/Modal'
 
 class Main extends PureComponent {
 	constructor(props) {
 		super(props);
 
 		this.state = {
+			selectedDrink: '',
 			drinks: [
 				{
-					id: Date.now() + 1,
+					id: 1237891723,
 					drinkName: 'Gin & Tonic',
 					drinkType: 'Cocktail',
 					details: {
@@ -18,7 +20,7 @@ class Main extends PureComponent {
 					},
 				},
 				{
-					id: Date.now() + 1,
+					id: 98192309123,
 					drinkName: 'Mai Tai',
 					drinkType: 'Cocktail',
 					details: {
@@ -28,7 +30,7 @@ class Main extends PureComponent {
 					},
 				},
 				{
-					id: Date.now() + 1,
+					id: 901823723123,
 					drinkName: 'Whiskey Sour',
 					drinkType: 'Cocktail',
 					details: {
@@ -38,7 +40,7 @@ class Main extends PureComponent {
 					},
 				},
                 {
-                    id: Date.now() + 1,
+                    id: 293801928390,
                     drinkName: 'Mojito',
                     drinkType: 'Cocktail',
                     details: {
@@ -48,7 +50,7 @@ class Main extends PureComponent {
                     }
                 },
                 {
-                    id: Date.now() + 1,
+                    id: 981471309234,
                     drinkName: 'Martini',
                     drinkType: 'Cocktail',
                     details: {
@@ -58,7 +60,7 @@ class Main extends PureComponent {
                     }
                 },
                 {
-                    id: Date.now() + 1,
+                    id: 987234723498,
                     drinkName: 'Sidecar',
                     drinkType: 'Cocktail',
                     details: {
@@ -68,22 +70,38 @@ class Main extends PureComponent {
                     }
                 },
 			],
+			isModalOpen: false,
 		};
 	}
+
+	selectedDrink = (drinkName) => {
+		const {drinks} = this.state
+		drinks.filter((e, i) => {
+			if(e.drinkName === drinkName){
+				this.setState({selectedDrink: e})
+			}
+		})
+	}
+
+
 	render() {
-		const { drinks } = this.state;
+		const { drinks, selectedDrink, isModalOpen } = this.state;
 		return (
 			<div className="main">
 				<div className="title align_center fl">
-					<h1 class="title__heading title_heading-main-color">
+					<h1 className="title__heading title_heading-main-color">
 						<span className="text-blue">BEST OF:</span> COCKTAILS
 					</h1>
 				</div>
 				<div className="drinks__list fl__d-row">
 					{drinks.map(drink => {
-						return <ListItems key={drink.id} drink={drink} />;
+						return <ListItems key={drink.id} drink={drink} handleClick={ this.selectedDrink }/>;
 					})}
 				</div>
+				<Modal 
+					isModalOpen={isModalOpen}
+					data={selectedDrink}
+				/>
 			</div>
 		);
 	}
