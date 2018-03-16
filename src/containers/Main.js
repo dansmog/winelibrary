@@ -103,12 +103,21 @@ class Main extends PureComponent {
 						return <ListItems key={drink.id} drink={drink} handleClick={this.selectedDrink} />;
 					})}
 				</div>
-				<Rodal visible={visible} onClose={this.hide.bind(this)}>
+				<Rodal visible={visible} onClose={this.hide.bind(this)} height="280">
 					{
 						selectedDrink.length === 0 ? null : (
-							<div className="fl__d-col centralize">
+							<div className="fl__d-col centralize mg__top--xs">
 								<h1>{selectedDrink.drinkName}</h1>
-								<h6>{selectedDrink.drinkType}</h6>
+								<div className="fl__d-row jc_btw">
+									<h4 className="mg__top--xxs">{selectedDrink.drinkType}</h4>
+									<h4 className="mg__top--xxs mg__left--xs">${selectedDrink.details.price}</h4>
+								</div>
+								<img className="mg__top--xxs" src={`images/${selectedDrink.details.imageUrl}`} alt={selectedDrink.drinkName} />
+								<p>{selectedDrink.description}</p>
+
+								<div class="mg__top--xm">
+									<button className="button button__main">Add to Cart</button>
+								</div>
 							</div>
 						)
 					}
