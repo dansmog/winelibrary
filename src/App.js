@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {  BrowserRouter, Route, Switch } from 'react-router-dom'
 // import logo from './logo.svg';
 import './App.css';
 import Sidebar from './presentational/Sidebar';
@@ -8,7 +9,12 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Sidebar />
-				<Main />
+				<BrowserRouter>
+					<Switch>
+						<Route exact path="/" component={Main} />
+						<Route path="/cocktails" component={Main} />
+					</Switch>
+				</BrowserRouter>
 			</div>
 		);
 	}
